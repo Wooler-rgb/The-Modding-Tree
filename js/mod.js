@@ -7,14 +7,14 @@ let modInfo = {
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (1), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.0.1",
+	name: "Literally one layer",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -43,6 +43,14 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if(hasUpgrade('p', 11)) 
+		gain = gain.times(2)
+	
+	if(hasUpgrade('p', 12)) 
+		gain = gain.times(2)
+	
+	if(hasUpgrade('p', 13)) 
+		gain = gain.times(upgradeEffect('p', 13))
 	return gain
 }
 
