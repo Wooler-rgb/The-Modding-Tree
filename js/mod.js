@@ -1,6 +1,6 @@
 let modInfo = {
 	name: "The Bebra Tree",
-	id: "Bebraisbestlol",
+	id: "Bebraisbestloll",
 	author: "Wooler",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
@@ -51,6 +51,15 @@ function getPointGen() {
 	
 	if(hasUpgrade('p', 13)) 
 		gain = gain.times(upgradeEffect('p', 13))
+	
+	if(hasUpgrade('b', 11)) 
+		gain = gain.times(3)
+
+	if(hasUpgrade('b', 21)) 
+		gain = gain.times(5)
+
+	if(hasUpgrade('b', 31)) 
+		gain = gain.times(10)
 	return gain
 }
 
